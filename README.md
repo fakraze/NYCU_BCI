@@ -24,12 +24,11 @@ The project is based on Lab 2 materials from the [CECNL/BCI_lab1-Mind-controlled
 Classification uses the **extreme values** of the last 100 data points for $\text{diff} (FP1-FP2)$ and $\text{sum} (FP1+FP2)$.
 
 ### Classification Table
-
-| Blink Type       | $\text{extreme\_diff}$ (FP1 - FP2) | $\text{extreme\_sum}$ (FP1 + FP2) | Car Action                |
-| :--------------- | :--------------------------------- | :-------------------------------- | :------------------------ |
-| **Left Blink**   | $< -500$                           | $< -500$                          | **Turn Left (0.3s)**      |
-| **Right Blink**  | $> 500$                            | $< -500$                          | **Turn Right (0.3s)**     |
-| **Double Blink** | $abs < 200$                        | $> 250$                           | **Drive Straight (0.3s)** |
+| Blink Type       | Extreme Difference (FP1 - FP2) | Extreme Sum (FP1 + FP2) | Car Action                |
+| :--------------- | :----------------------------- | :---------------------- | :------------------------ |
+| **Left Blink**   | $< -500$                       | $< -500$                | **Turn Left (0.3s)**      |
+| **Right Blink**  | $> 500$                        | $< -500$                | **Turn Right (0.3s)**     |
+| **Double Blink** | $abs < 200$                    | $> 250$                 | **Drive Straight (0.3s)** |
 
 **Cooldown:** A 1-second cooldown period is enforced after every movement command.
 
