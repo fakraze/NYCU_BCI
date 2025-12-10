@@ -1,0 +1,25 @@
+
+Based on lab2
+https://github.com/CECNL/BCI_lab1-Mind-controlled-car
+
+File description
+ - real_time_diff.py: 畫圖
+ - determine.py: 畫圖 + 判斷眨眼
+ - hybrid_control.py: 畫圖 + 判斷眨眼 + 控制車子
+
+判斷邏輯:
+diff: fp1 - fp2
+sum: fp1 + fp2
+
+extreme_diff, extreme_sum: 每次判斷取最近 100 data point，計算極值(絕對值最大者)
+
+左眨眼: extreme_diff, extreme_sum < -500
+右眨眼: extreme_diff > 500, extreme_sum < -500
+眨雙眼: abs(extreme_diff) < 200, extreme_sum > 250
+
+左眨眼: 左轉 0.3 秒
+右眨眼: 右轉 0.3 秒
+眨雙眼: 直走 0.3 秒
+
+每次動作後有 1 秒冷卻時間
+
