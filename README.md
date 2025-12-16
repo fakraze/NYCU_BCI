@@ -19,6 +19,10 @@ The project is based on Lab 2 materials from the [CECNL/BCI_lab1-Mind-controlled
 | `determine.py`      | **Plotting + Blink Determination.** Plots signals and identifies blink types.                       |
 | `hybrid_control.py` | **Plotting + Determination + Car Control.** The full system, translating blinks into car movements. |
 
+## Preprocessing
+* **Filter:** 2nd-order Butterworth bandpass filter
+* **Frequency Range:** 0.5 Hz - 10 Hz
+
 ## Control Logic (Blink Classification)
 
 Classification uses the **extreme values** of the last 100 data points for $\text{diff} (FP1-FP2)$ and $\text{sum} (FP1+FP2)$.
@@ -26,9 +30,9 @@ Classification uses the **extreme values** of the last 100 data points for $\tex
 ### Classification Table
 | Blink Type       | Extreme Difference (FP1 - FP2) | Extreme Sum (FP1 + FP2) | Car Action                |
 | :--------------- | :----------------------------- | :---------------------- | :------------------------ |
-| **Left Blink**   | $< -500$                       | $< -500$                | **Turn Left (0.3s)**      |
-| **Right Blink**  | $> 500$                        | $< -500$                | **Turn Right (0.3s)**     |
-| **Double Blink** | $abs < 200$                    | $> 250$                 | **Drive Straight (0.3s)** |
+| **Left Blink**   | $< -500$                       | $< -500$                | **Turn Left (0.2s)**      |
+| **Right Blink**  | $> 500$                        | $< -500$                | **Turn Right (0.2s)**     |
+| **Double Blink** | $abs < 200$                    | $> 250$                 | **Drive Straight (0.2s)** |
 
 **Cooldown:** A 1-second cooldown period is enforced after every movement command.
 
